@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Asistencia Alumno</string>
+
+    <!-- P-AL01 Principal -->
+    <string name="titulo_principal">Registro de asistencia</string>
+    <string name="subtitulo_principal">Ingresa el código que te entregó tu profesor para registrar tu asistencia</string>
+    <string name="btn_registrar_asistencia">Registrar asistencia</string>
+
+    <!-- P-AL02 Registro -->
+    <string name="titulo_registro">Registrar asistencia</string>
+    <string name="label_id">Identificador (matrícula o RUT)</string>
+    <string name="hint_id">Ej: 2026001</string>
+    <string name="label_nombre">Nombre completo</string>
+    <string name="hint_nombre">Ej: María López</string>
+    <string name="label_codigo">Código de la sesión</string>
+    <string name="hint_codigo">4 dígitos</string>
+    <string name="btn_registrar">Registrar</string>
+
+    <!-- P-AL03 Confirmacion -->
+    <string name="titulo_confirmacion">Asistencia registrada</string>
+    <string name="mensaje_exito">¡Tu asistencia fue registrada con éxito!</string>
+    <string name="label_curso">Curso</string>
+    <string name="label_codigo_sesion">Código</string>
+    <string name="label_hora">Hora de registro</string>
+    <string name="btn_volver">Volver al inicio</string>
+
+    <!-- Errores -->
+    <string name="error_id">El identificador debe tener entre 5 y 20 caracteres</string>
+    <string name="error_nombre">El nombre debe tener entre 2 y 80 caracteres</string>
+    <string name="error_codigo_formato">El código debe tener 4 dígitos</string>
+    <string name="error_sesion_no_encontrada">Sesión no encontrada</string>
+    <string name="error_sesion_cerrada">La sesión está cerrada</string>
+    <string name="error_ya_registrado">Ya registró asistencia en esta sesión</string>
+    <string name="error_sin_conexion">Sin conexión</string>
+    <string name="error_registro">No se pudo registrar la asistencia</string>
+</resources>
