@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Asistencia Profesor</string>
+
+    <!-- P-PF01 Principal -->
+    <string name="titulo_principal">Panel del profesor</string>
+    <string name="subtitulo_principal">Crea una sesión de asistencia y comparte el código con tus alumnos</string>
+    <string name="btn_nueva_sesion">Nueva sesión</string>
+
+    <!-- P-PF02 Crear sesión -->
+    <string name="titulo_crear_sesion">Nueva sesión</string>
+    <string name="label_curso">Nombre del curso</string>
+    <string name="hint_curso">Ej: Programación Android</string>
+    <string name="btn_crear">Crear sesión</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="error_curso">El curso debe tener entre 3 y 60 caracteres</string>
+
+    <!-- P-PF03 Sesión activa -->
+    <string name="titulo_sesion_activa">Sesión activa</string>
+    <string name="label_codigo_grande">Código de la sesión</string>
+    <string name="label_curso_sesion">Curso</string>
+    <string name="label_asistentes">Asistentes</string>
+    <string name="btn_cerrar_sesion">Cerrar sesión</string>
+    <string name="dialog_cerrar_titulo">Cerrar sesión</string>
+    <string name="dialog_cerrar_mensaje">¿Seguro que quieres cerrar la sesión? Ya no se aceptarán nuevos registros.</string>
+    <string name="btn_confirmar">Cerrar</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_eliminar">Eliminar</string>
+    <string name="sin_alumnos">Aún no hay alumnos registrados. Comparte el código.</string>
+    <string name="hora_registro">hora: %1$s</string>
+
+    <!-- Semántica alumnos -->
+    <string name="label_alumno_id">ID</string>
+    <string name="label_alumno_nombre">Nombre</string>
+
+    <!-- Errores -->
+    <string name="error_sesion_cerrada">La sesión está cerrada</string>
+    <string name="error_sin_conexion">Sin conexión</string>
+    <string name="error_crear_sesion">No se pudo crear la sesión</string>
+    <string name="error_cerrar_sesion">No se pudo cerrar la sesión</string>
+    <string name="mensaje_sesion_cerrada">Sesión cerrada. Los alumnos ya no pueden registrarse.</string>
+    <string name="mensaje_sesion_creada">Sesión creada: %1$s</string>
+</resources>
