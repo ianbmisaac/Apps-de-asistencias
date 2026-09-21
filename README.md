@@ -150,12 +150,3 @@ idéntica en ambas apps (sin conversión de zona horaria).
 - **Extras:** barra/estado de carga durante el registro, animación de entrada.
 
 ---
-
-## Seguridad
-
-- **No subir a este repositorio** el archivo de *service account* de Firebase
-  (`*-firebase-adminsdk-*.json`). Es una credencial de administrador y debe quedar local
-  (por ejemplo, en la carpeta `Descargas`). Los `.gitignore` del proyecto ya excluyen
-  `build/`, `.gradle/`, `.idea/` y `local.properties`.
-- Se recomienda mantener el repositorio **privado**, ya que `google-services.json` expone
-  la configuración del proyecto de Firebase.
