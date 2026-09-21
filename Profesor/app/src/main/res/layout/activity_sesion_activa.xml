@@ -103,6 +103,26 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCopiar"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:icon="@drawable/ic_clipboard_check"
+                        android:paddingHorizontal="20dp"
+                        android:text="@string/btn_copiar"
+                        android:textAllCaps="false" />
+
+                    <TextView
+                        android:id="@+id/tvIniciada"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

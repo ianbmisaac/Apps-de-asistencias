@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "000000000000",
-    "project_id": "PLACEHOLDER-RTDB",
-    "storage_bucket": "PLACEHOLDER-RTDB.appspot.com"
+    "project_number": "507016842808",
+    "firebase_url": "https://app-asistencia-41e6a-default-rtdb.firebaseio.com",
+    "project_id": "app-asistencia-41e6a",
+    "storage_bucket": "app-asistencia-41e6a.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+        "mobilesdk_app_id": "1:507016842808:android:9d706556ac6dea0ea060cd",
         "android_client_info": {
           "package_name": "com.example.alumnos"
         }
@@ -15,7 +16,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "PLACEHOLDER"
+          "current_key": "AIzaSyAeDLabLp6ZIAO-oujZdPaKxJ8dmS3qxDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507016842808:android:062c9244f6182017a060cd",
+        "android_client_info": {
+          "package_name": "com.example.profesor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeDLabLp6ZIAO-oujZdPaKxJ8dmS3qxDw"
         }
       ],
       "services": {

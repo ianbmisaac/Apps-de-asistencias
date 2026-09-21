@@ -27,6 +27,15 @@
     <string name="btn_eliminar">Eliminar</string>
     <string name="sin_alumnos">Aún no hay alumnos registrados. Comparte el código.</string>
     <string name="hora_registro">hora: %1$s</string>
+    <string name="btn_copiar">Copiar código</string>
+    <string name="toast_codigo_copiado">Código copiado al portapapeles</string>
+    <string name="mensaje_nuevo_alumno">Nuevo asistente: %1$s</string>
+    <string name="label_iniciada">Sesión iniciada %1$s</string>
+    <string name="dialog_quitar_titulo">Quitar alumno</string>
+    <string name="dialog_quitar_mensaje">¿Quitar a %1$s del registro? Mantén presionado un ítem para corregir un ID mal ingresado.</string>
+    <string name="btn_quitar">Quitar</string>
+    <string name="toast_alumno_eliminado">Alumno quitado del registro</string>
+    <string name="estado_creando">Creando la sesión…</string>
 
     <!-- Semántica alumnos -->
     <string name="label_alumno_id">ID</string>

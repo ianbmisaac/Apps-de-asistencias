@@ -1,6 +1,12 @@
 package com.example.alumnos;
 
+import android.content.Context;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +27,12 @@ public class ConfirmacionActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_confirmacion);
 
+        findViewById(R.id.root).startAnimation(
+                AnimationUtils.loadAnimation(this, R.anim.fade_in_up));
+
+        reproducirSonidoExito();
+        vibrarExito();
+
         String curso = getIntent().getStringExtra(EXTRA_CURSO);
         String codigo = getIntent().getStringExtra(EXTRA_CODIGO);
         String hora = getIntent().getStringExtra(EXTRA_HORA);
@@ -31,9 +43,27 @@ public class ConfirmacionActivity extends AppCompatActivity {
 
         tvCurso.setText(curso != null ? curso : "");
         tvCodigo.setText(codigo != null ? codigo : "");
-        tvHora.setText(SesionRepository.formatearHora(hora));
+        tvHora.setText(SesionRepository.formatearFechaLegible(hora));
 
         MaterialButton btnVolver = findViewById(R.id.btnVolver);
         btnVolver.setOnClickListener(v -> finish());
+    }
+
+    /** Feedback háptico breve cuando la asistencia queda registrada. */
+    private void vibrarExito() {
+        Vibrator vibrador = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrador != null && vibrador.hasVibrator()) {
+            vibrador.vibrate(VibrationEffect.createOneShot(120,
+                    VibrationEffect.DEFAULT_AMPLITUDE));
+        }
+    }
+
+    /** Sonido breve de confirmación cuando la asistencia queda registrada. */
+    private void reproducirSonidoExito() {
+        Ringtone tono = RingtoneManager.getRingtone(this,
+                RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+        if (tono != null) {
+            tono.play();
+        }
     }
 }

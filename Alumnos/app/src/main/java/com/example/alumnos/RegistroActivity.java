@@ -3,7 +3,7 @@ package com.example.alumnos;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.widget.ProgressBar;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -35,7 +35,7 @@ public class RegistroActivity extends AppCompatActivity {
     private TextInputEditText etNombre;
     private TextInputEditText etCodigo;
     private MaterialButton btnRegistrar;
-    private ProgressBar progressRegistro;
+    private View cardCargando;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class RegistroActivity extends AppCompatActivity {
         etNombre = findViewById(R.id.etNombre);
         etCodigo = findViewById(R.id.etCodigo);
         btnRegistrar = findViewById(R.id.btnRegistrar);
-        progressRegistro = findViewById(R.id.progressRegistro);
+        cardCargando = findViewById(R.id.cardCargando);
 
         btnRegistrar.setOnClickListener(v -> registrar());
     }
@@ -167,7 +167,7 @@ public class RegistroActivity extends AppCompatActivity {
 
     private void mostrarCargando(boolean cargando) {
         btnRegistrar.setEnabled(!cargando);
-        progressRegistro.setVisibility(cargando ? ProgressBar.VISIBLE : ProgressBar.GONE);
+        cardCargando.setVisibility(cargando ? View.VISIBLE : View.GONE);
     }
 
     private void mostrarError(int resId) {

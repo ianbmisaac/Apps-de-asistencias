@@ -9,9 +9,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -103,7 +106,7 @@ public class SesionRepository {
                 }
 
                 String curso = nodoSesion.child("curso").getValue(String.class);
-                String horaRegistro = Instant.now().toString();
+                String horaRegistro = LocalDateTime.now().toString();
 
                 Map<String, Object> alumno = new HashMap<>();
                 alumno.put("nombre", nombre);
@@ -126,7 +129,7 @@ public class SesionRepository {
         });
     }
 
-    /** Convierte un código de error de RTDB en un mensaje legible en español (ERR-01..ERR-06). */
+    /** Convierte un error de código de RTDB en un mensaje legible en español (ERR-01..ERR-06). */
     public static String obtenerMensajeError(DatabaseError error) {
         switch (error.getCode()) {
             case DatabaseError.UNAVAILABLE:  // -24: sin conexión
@@ -136,15 +139,55 @@ public class SesionRepository {
         }
     }
 
-    /** Formatea un horario ISO 8601 a formato local legible. */
+    /** Formatea un horario a hora local legible. Soporta formato local (nuevo) y UTC (legacy). */
     public static String formatearHora(String horaIso) {
         if (horaIso == null || horaIso.isEmpty()) {
             return "";
         }
         try {
-            DateTimeFormatter entrada = DateTimeFormatter.ISO_INSTANT;
-            DateTimeFormatter salida = DateTimeFormatter.ofPattern("HH:mm:ss");
-            return Instant.parse(horaIso).atZone(ZoneId.systemDefault()).format(salida);
+            LocalDateTime fechaHora;
+            try {
+                fechaHora = LocalDateTime.parse(horaIso);
+            } catch (Exception ignorada) {
+                fechaHora = Instant.parse(horaIso)
+                        .atZone(ZoneId.systemDefault())
+                        .toLocalDateTime();
+            }
+            return fechaHora.format(DateTimeFormatter.ofPattern("HH:mm"));
+        } catch (Exception e) {
+            return horaIso;
+        }
+    }
+
+    /** Formatea una fecha a una forma amigable: "hoy, 20:53", "ayer, 20:53", "20 sep, 20:53". */
+    public static String formatearFechaLegible(String horaIso) {
+        if (horaIso == null || horaIso.isEmpty()) {
+            return "";
+        }
+        try {
+            LocalDateTime fechaHora;
+            try {
+                fechaHora = LocalDateTime.parse(horaIso);
+            } catch (Exception ignorada) {
+                fechaHora = Instant.parse(horaIso)
+                        .atZone(ZoneId.systemDefault())
+                        .toLocalDateTime();
+            }
+            LocalDate hoy = LocalDate.now();
+            LocalDate dia = fechaHora.toLocalDate();
+            String cuando;
+            if (dia.equals(hoy)) {
+                cuando = "hoy";
+            } else if (dia.equals(hoy.minusDays(1))) {
+                cuando = "ayer";
+            } else if (dia.getYear() == hoy.getYear()) {
+                cuando = dia.format(DateTimeFormatter.ofPattern("d 'de' MMM", Locale.getDefault()));
+            } else {
+                cuando = dia.format(
+                        DateTimeFormatter.ofPattern("d 'de' MMM yyyy", Locale.getDefault()));
+            }
+            String hora = fechaHora.format(DateTimeFormatter.ofPattern("HH:mm"));
+            return cuando + ", " + hora;
         } catch (Exception e) {
             return horaIso;
         }

@@ -1,7 +1,7 @@
 package com.example.profesor;
 
 import android.os.Bundle;
-import android.widget.ProgressBar;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -29,7 +29,7 @@ public class NuevaSesionActivity extends AppCompatActivity {
     private TextInputEditText etCurso;
     private MaterialButton btnCrear;
     private MaterialButton btnCancelar;
-    private ProgressBar progressCrear;
+    private View cardCargando;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class NuevaSesionActivity extends AppCompatActivity {
         etCurso = findViewById(R.id.etCurso);
         btnCrear = findViewById(R.id.btnCrear);
         btnCancelar = findViewById(R.id.btnCancelar);
-        progressCrear = findViewById(R.id.progressCrear);
+        cardCargando = findViewById(R.id.cardCargando);
 
         btnCrear.setOnClickListener(v -> crearSesion());
         btnCancelar.setOnClickListener(v -> finish());
@@ -92,6 +92,6 @@ public class NuevaSesionActivity extends AppCompatActivity {
     private void mostrarCargando(boolean cargando) {
         btnCrear.setEnabled(!cargando);
         btnCancelar.setEnabled(!cargando);
-        progressCrear.setVisibility(cargando ? ProgressBar.VISIBLE : ProgressBar.GONE);
+        cardCargando.setVisibility(cargando ? View.VISIBLE : View.GONE);
     }
 }

@@ -33,4 +33,5 @@
     <string name="error_ya_registrado">Ya registró asistencia en esta sesión</string>
     <string name="error_sin_conexion">Sin conexión</string>
     <string name="error_registro">No se pudo registrar la asistencia</string>
+    <string name="estado_registrando">Registrando asistencia…</string>
 </resources>
